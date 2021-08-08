@@ -35,6 +35,7 @@ const Input = ({
         </View>
         <View style={styles.line} />
         <TextInput
+          autoCapitalize="none"
           underlineColorAndroid={'transparent'}
           secureTextEntry={hidden}
           placeholder={placeHolderText}

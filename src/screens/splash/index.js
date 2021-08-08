@@ -4,10 +4,20 @@ import Logo from '../../components/logo';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {useEffect} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const SplashScreen = () => {
   const navigation = useNavigation();
   useEffect(() => {
-    setTimeout(() => navigation.navigate('PreLogin'), 3000);
+    const isLogin = async () => {
+      const res = await AsyncStorage.getItem('@login_token');
+      console.log('res', res);
+      if (res) {
+        navigation.navigate('PostLogin');
+      } else {
+        navigation.navigate('PreLogin');
+      }
+    };
+    isLogin();
   }, []);
   return (
     <View style={styles.container}>

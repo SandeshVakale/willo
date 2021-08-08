@@ -6,18 +6,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginScreen from '../screens/login';
 import SignUpScreen from '../screens/signUp';
 import SplashScreen from '../screens/splash';
+import HomeScreen from '../screens/home';
 
 const PreLoginStack = createNativeStackNavigator();
 const PostLoginStack = createNativeStackNavigator();
 const AppStack = createNativeStackNavigator();
-
-function HomeScreen() {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
 
 function PreLogin() {
   return (
