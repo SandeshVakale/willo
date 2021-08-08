@@ -1,11 +1,12 @@
 /**
  * @author Sandesh VAKALE
  */
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Button from '../../components/button';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {View} from 'react-native';
+import { getCycles } from "../../services/cycles";
 /**
  * This component is for showing logo.
  **/
@@ -18,6 +19,14 @@ const HomeScreen = () => {
     await AsyncStorage.removeItem('@login_token');
     navigation.goBack();
   };
+
+  useEffect(() => {
+    const cyclesData = async () => {
+      const response = await getCycles();
+      console.log('response', response);
+    }
+    cyclesData();
+  }, []);
 
   return (
     <View
