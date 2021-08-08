@@ -13,7 +13,7 @@ const getItem = (time, title, description, color) => {
 export const transformData = async data => {
   let chunkIndex = 0;
   let arrayIndex = 0;
-  const sortedCycles = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const sortedCycles = data.sort((a, b) => new Date(b.date.replace(' ', 'T')) - new Date(a.date.replace(' ', 'T')));
   let groupedCycles = sortedCycles.reduce((resultArray, item, index) => {
     if (
       !(
@@ -119,7 +119,8 @@ export const transformData = async data => {
       }
     } else {
       let count = 0;
-      for (let i = 0; i < group.length; i++) {
+      let i;
+      for (i = 0; i < group.length; i++) {
         if (group[i].interrupted) {
           count++;
         }
@@ -160,5 +161,6 @@ export const transformData = async data => {
       }
     }
   });
+
   return finalCycles.reverse();
 };

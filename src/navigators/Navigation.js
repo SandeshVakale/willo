@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text} from 'react-native';
+import {BackHandler} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -7,6 +7,7 @@ import LoginScreen from '../screens/login';
 import SignUpScreen from '../screens/signUp';
 import SplashScreen from '../screens/splash';
 import HomeScreen from '../screens/home';
+import {useEffect} from 'react';
 
 const PreLoginStack = createNativeStackNavigator();
 const PostLoginStack = createNativeStackNavigator();
@@ -48,6 +49,20 @@ function PostLogin() {
 }
 
 export default function Navigation() {
+  const handleBackButton = () => {
+    console.log('Back button is pressed');
+    return true;
+  };
+
+  useEffect(() => {
+    const unsubscribe = BackHandler.addEventListener(
+      'hardwareBackPress',
+      handleBackButton,
+    );
+
+    return () => null;
+  }, []);
+
   return (
     <NavigationContainer>
       <AppStack.Navigator screenOptions={{gestureEnabled: false}}>

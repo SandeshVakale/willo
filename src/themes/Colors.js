@@ -5,6 +5,7 @@ const colors = {
   secondaryVariant: '#018786',
   surface: '#FFFFFF',
   background: '#FFFFFF50',
+  grey: 'grey',
   error: '#B00020',
 };
 

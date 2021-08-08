@@ -43,6 +43,7 @@ const Input = ({
           underlineColorAndroid={'transparent'}
           secureTextEntry={hidden}
           placeholder={placeHolderText}
+          placeholderTextColor={colors.grey}
           autoCorrect={false}
           keyboardType={keyType}
           style={styles.input}
