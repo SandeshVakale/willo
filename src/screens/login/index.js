@@ -35,7 +35,7 @@ const LoginScreen = () => {
         setLoading(false);
       }
     } else {
-      Alert.alert('Email and password both are mandatory');
+      Alert.alert('Email and Password both are mandatory');
       setLoading(false);
     }
   };
@@ -59,13 +59,13 @@ const LoginScreen = () => {
           value={password}
           hidden
         />
-        <Button text={'Login'} loading={loading} onPress={() => login()} />
+        <Button text={'Login'} loading={loading} onPress={login} />
       </KeyboardAvoidingView>
       <View style={styles.textContainer}>
         <TouchableNativeFeedback
           onPress={() => navigation.navigate('SignUpScreen')}>
           <Text>
-            Not having a account <Text style={styles.text}>Sign Up</Text>
+            Not having a account? <Text style={styles.text}>Sign Up</Text>
           </Text>
         </TouchableNativeFeedback>
       </View>

@@ -1,7 +1,7 @@
 /**
  * @author Sandesh VAKALE
  */
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {View, TextInput} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
@@ -27,6 +27,10 @@ const Input = ({
   value,
 }) => {
   const [text, setText] = useState(value);
+
+  useEffect(() => {
+    value === '' && setText('');
+  }, [value]);
   return (
     <View style={{alignItems: 'center', padding: 4}}>
       <View style={styles.container}>

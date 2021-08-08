@@ -5,6 +5,7 @@ import React, {useState} from 'react';
 import Button from '../../components/button';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {View} from 'react-native';
 /**
  * This component is for showing logo.
  **/
@@ -18,7 +19,18 @@ const HomeScreen = () => {
     navigation.goBack();
   };
 
-  return <Button loading={loading} text={'Log Out'} onPress={logOut} />;
+  return (
+    <View
+      style={{
+        position: 'absolute',
+        bottom: 20,
+        alignItems: 'center',
+        padding: 4,
+        justifyContent: 'center',
+      }}>
+      <Button loading={loading} text={'Log Out'} onPress={logOut} />
+    </View>
+  );
 };
 
 export default HomeScreen;
